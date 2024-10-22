@@ -1,0 +1,43 @@
+package com.QL.Base;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+
+public class TestBase {
+
+	public static WebDriver driver;
+	public static Properties prop;
+	
+	public TestBase(){
+		
+		try {
+			prop = new Properties();
+			FileInputStream fp = new FileInputStream("C:\\Users\\Division Office Tech\\eclipse-workspace\\QUICKLINKSTest\\src\\test\\java\\com"
+					+ "\\QL\\config\\config.properties");
+			prop.load(fp);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

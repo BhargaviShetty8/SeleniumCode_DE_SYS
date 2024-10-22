@@ -1,0 +1,29 @@
+package testCases;
+
+import com.BaseTest.TestBase;
+import com.Pages.LoginPage;
+
+public class LoginPageTest extends TestBase {
+
+	LoginPage loginPage;
+	
+	
+	
+	LoginPageTest(){
+		super();
+	}
+	
+	@Before
+	public void setUp() {
+		init();
+		loginPage = new LoginPage(driver);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

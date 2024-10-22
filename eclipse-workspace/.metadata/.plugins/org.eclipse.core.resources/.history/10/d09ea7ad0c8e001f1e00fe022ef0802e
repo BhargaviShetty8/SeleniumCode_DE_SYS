@@ -1,0 +1,32 @@
+package com.practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Site_check {
+
+	public static void main(String[] args) {
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://210.212.223.82/ATS/login/0/init");
+		driver.findElement(By.name("userName")).sendKeys("NPDCL");
+		driver.findElement(By.name("password")).sendKeys("NPDCL");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'Reports')]"))).build().perform();
+		driver.findElement(By.xpath("//a[contains(text(), 'Voltage & Load Wise  Abstract')]")).click();
+		
+		Select select = new Select(driver.findElement(By.xpath("//select[contains(@id, 'reportFlag1')]")));
+		select.selectByVisibleText("33KV FEEDER");
+		Select select1 = new Select(driver.findElement(By.xpath("//select[contains(@id, 'reportFlag2')]")));
+		select1.selectByVisibleText("Load Wise Abstract");
+		Select select2 = new Select(driver.findElement(By.xpath("//input[contains(@class, 'date-picker hasDatepicker')]")));
+		select2.selectByIndex(9);
+	}
+
+	
+}

@@ -1,0 +1,28 @@
+package com.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import com.BaseTest.TestBase;
+
+public class LoginPage extends TestBase{
+
+	
+	@FindBy(name="userName")
+	WebElement username;
+	
+	@FindBy(name="password")
+	WebElement password;
+	 
+	@FindBy(xpath ="//input[@type='submit']")
+	WebElement LoginButton;
+	
+	
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+		
+	}
+	
+	
+}

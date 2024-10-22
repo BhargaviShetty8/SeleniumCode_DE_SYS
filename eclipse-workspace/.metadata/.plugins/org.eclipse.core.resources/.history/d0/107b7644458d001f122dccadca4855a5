@@ -1,0 +1,6 @@
+url = http://210.212.223.82/ATS/login/0/init
+
+username  = NPDCL
+password = npdcl
+
+browserName = chrome

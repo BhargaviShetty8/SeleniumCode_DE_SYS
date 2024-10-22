@@ -1,0 +1,20 @@
+package com.practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Site_check {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://210.212.223.82/ATS/login/0/init");
+		driver.findElement(By.name("userName")).sendKeys("NPDCL");
+		driver.findElement(By.name("password")).sendKeys("npdcl");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Select select = new Select(driver.findElement(By.xpath("//a[contains(text(), 'Reports')]")));
+		driver.findElement(By.xpath("//a[contains(text(), 'Voltage & Load Wise  Abstract')]")).click();
+	}
+
+}

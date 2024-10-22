@@ -1,0 +1,28 @@
+package com.QL.testcases;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class LoginPageTest {
+
+	WebDriver driver;
+	
+	LoginPageTest(){
+		initialization();
+	}
+	
+	@BeforeMethod
+	public void setup() {
+		
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		
+	}
+	
+	
+	
+	
+}

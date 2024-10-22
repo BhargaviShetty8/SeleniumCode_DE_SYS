@@ -1,0 +1,24 @@
+package com.practice;
+
+import org.apache.commons.math3.ode.events.Action;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import org.openqa.selenium.support.ui.Select;
+
+public class Site_check {
+
+	public static void main(String[] args) {
+		WebDriver driver = new EdgeDriver();
+		driver.get("http://210.212.223.82/ATS/login/0/init");
+		driver.findElement(By.name("userName")).sendKeys("NPDCL");
+		driver.findElement(By.name("password")).sendKeys("NPDCL");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Action select = new Action();
+		select.
+		driver.findElement(By.xpath("//a[contains(text(), 'Voltage & Load Wise  Abstract')]")).click();
+	}
+
+}

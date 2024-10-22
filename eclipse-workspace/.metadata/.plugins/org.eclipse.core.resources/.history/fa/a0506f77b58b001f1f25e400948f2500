@@ -1,0 +1,9 @@
+package com.QL.util;
+
+public class TestUtil {
+
+	static long Page_Load_TimeOut = 20;
+	static long Implicit_Wait =10;
+	
+	
+}

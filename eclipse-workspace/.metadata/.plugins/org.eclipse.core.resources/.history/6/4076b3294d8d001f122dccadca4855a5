@@ -1,0 +1,35 @@
+package com.QL.testcases;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.QL.Base.TestBase;
+import com.QL.pages.LoginPage;
+
+public class HomePageTest extends TestBase{
+
+	LoginPage loginPage;
+	public HomePageTest() {
+		super();
+		
+	}
+	
+	@BeforeMethod
+	public void setUp() {
+		initialization();
+		loginPage = new LoginPage(driver);
+		
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

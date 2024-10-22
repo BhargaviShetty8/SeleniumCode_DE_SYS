@@ -1,0 +1,41 @@
+package testCases;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.BaseTest.TestBase;
+import com.Pages.LoginPage;
+
+public class LoginPageTest extends TestBase {
+
+	LoginPage loginPage;
+	
+	
+	
+	LoginPageTest(){
+		super();
+	}
+	
+	@BeforeMethod
+	public void setUp() {
+		init();
+		loginPage = new LoginPage(driver);
+		
+	}
+	
+	
+	
+	
+	
+	@AfterMethod
+	public void tearDown() {
+		if(driver!= null) {
+			driver.quit();
+		}
+	}
+	
+	
+	
+	
+	
+}

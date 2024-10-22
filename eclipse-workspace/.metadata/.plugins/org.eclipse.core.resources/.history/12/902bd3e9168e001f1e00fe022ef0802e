@@ -1,0 +1,86 @@
+package com.practice;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Site_check {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("http://210.212.223.82/ATS/login/0/init");
+		driver.findElement(By.name("userName")).sendKeys("NPDCL");
+		driver.findElement(By.name("password")).sendKeys("NPDCL");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'Reports')]"))).build().perform();
+		driver.findElement(By.xpath("//a[contains(text(), 'Voltage & Load Wise  Abstract')]")).click();
+		
+//		Select select = new Select(driver.findElement(By.xpath("//select[contains(@id, 'reportFlag1')]")));
+//		select.selectByVisibleText("33KV FEEDER");
+//		Select select1 = new Select(driver.findElement(By.xpath("//select[contains(@id, 'reportFlag2')]")));
+//		select1.selectByVisibleText("Load Wise Abstract");
+//		driver.findElement(By.xpath("//input[@id='monthYear']")).click();
+//		Select select2 = new Select(driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-month')]")));
+//		select2.selectByVisibleText("Sep");
+//		Select select3 = new Select(driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]")));
+//		select3.selectByValue("2024");
+//	
+//		driver.findElement(By.xpath("//input[contains(@type, 'submit')]")).click();
+		
+		driver.findElement(By.xpath("//a[contains(text(), 'Voltage & Load Wise  Abstract')]")).click();
+
+        // Select from the first dropdown
+        driver.findElement(By.xpath("//select[contains(@id, 'reportFlag1')]")).click();
+        driver.findElement(By.xpath("//option[text()='33KV FEEDER']")).click();
+
+        // Select from the second dropdown
+        driver.findElement(By.xpath("//select[contains(@id, 'reportFlag2')]")).click();
+        driver.findElement(By.xpath("//option[text()='Load Wise Abstract']")).click();
+
+        // Click on the monthYear input to open the date picker
+        driver.findElement(By.xpath("//input[@id='monthYear']")).click();
+
+        // Wait for the date picker to be visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'ui-datepicker')]")));
+
+        // Select month
+        driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-month')]")).sendKeys("Sep");
+
+        // Select year
+        driver.findElement(By.xpath("//select[contains(@class,'ui-datepicker-year')]")).sendKeys("2024");
+
+        // Optionally, click on a specific date if needed
+        // driver.findElement(By.xpath("//table[@class='ui-datepicker-calendar']//a[text()='1']")).click(); // Example for 1st of the month
+
+        // Click the submit button
+        driver.findElement(By.xpath("//input[contains(@type, 'submit')]")).click();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Close the driver
+        driver.quit();
+    }
+}
+		
+		
+		
+		
+		
+	}
+
+	
+

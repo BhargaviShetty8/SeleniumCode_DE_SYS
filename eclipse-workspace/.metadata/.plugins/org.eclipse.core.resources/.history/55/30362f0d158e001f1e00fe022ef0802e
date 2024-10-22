@@ -1,0 +1,51 @@
+package com.QL.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class ReportsPage {
+	WebDriver driver;
+	
+	@FindBy (xpath = "//select[contains(@id, 'reportFlag1')]")
+	WebElement Check_33KVFeeder;
+	
+	@FindBy (xpath = "//select[contains(@id, 'reportFlag2')]")
+	WebElement Check_Load_Wise_Abstract;
+	
+	@FindBy (xpath = "//input[@id='monthYear']")
+	WebElement Check_monthYear;
+	
+	@FindBy (xpath = "//select[contains(@class,'ui-datepicker-month')]")
+	WebElement Check_monthPicker;
+	
+	@FindBy (xpath = "//select[contains(@class,'ui-datepicker-year')]")
+	WebElement Check_YearPicker;
+
+	@FindBy (xpath = "//input[contains(@type, 'submit')]")
+	WebElement Click_submit;
+	
+	
+	public ReportsPage(WebDriver driver) {
+	 this.driver = driver;
+	 PageFactory.initElements(driver, this);
+}
+
+	public void reportSelection() {
+	Select select = new Select(Check_33KVFeeder);
+	select.selectByVisibleText("33KV FEEDER");
+	Select select1 = new Select(Check_Load_Wise_Abstract);
+	select1.selectByVisibleText("Load Wise Abstract");
+	Check_monthYear.click();
+	Select select2 = new Select(Check_monthPicker);
+	select2.selectByVisibleText("Sep");
+	Select select3 = new Select(Check_YearPicker);
+	select3.selectByVisibleText("2024");
+	driver.findElement(By.xpath("//input[contains(@type, 'submit')]")).click();
+}
+
+
+}

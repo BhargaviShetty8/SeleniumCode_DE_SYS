@@ -1,0 +1,53 @@
+package com.QL.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class HomePage {
+
+WebDriver driver;
+
+	public HomePage(WebDriver driver) {
+	    this.driver = driver;
+	    PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath = "//*[@id=\"home\"]/p[1]/a/font")
+	WebElement clickHereText;
+	
+	@FindBy(xpath ="//a[contains(text(), 'Logout(NPDCL)')]")
+	WebElement LogOutButton;
+	
+	@FindBy(xpath = "//a[contains(text(), 'Reports')]")
+	WebElement Reports;
+	
+	@FindBy (xpath = "//a[contains(text(), 'Voltage & Load Wise  Abstract')]")
+	WebElement VoltageAndLoadAbstract;
+	
+	@FindBy (xpath = "//a[contains(text(), 'DTR')]")
+	WebElement DTR_Button;
+	
+	public String verifyPageTitle() {
+		return driver.getTitle();
+	}
+	
+	public ReportsPage ClickOnReports() {
+		Select select = new Select(Reports);
+		VoltageAndLoadAbstract.click();
+		return new ReportsPage();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

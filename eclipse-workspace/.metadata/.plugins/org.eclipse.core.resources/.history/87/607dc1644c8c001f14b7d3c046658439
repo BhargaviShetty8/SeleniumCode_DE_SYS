@@ -1,0 +1,9 @@
+package com.QL.pages;
+
+public class LoginPage extends TestBase {
+
+
+
+
+
+}

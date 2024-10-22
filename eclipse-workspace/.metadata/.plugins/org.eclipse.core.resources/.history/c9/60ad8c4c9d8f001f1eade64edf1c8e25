@@ -1,0 +1,38 @@
+package com.BaseTest;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class TestBase {
+
+	public static Properties prop;
+	
+	public TestBase() {
+		try {
+			prop = new Properties();
+			FileInputStream fp = new FileInputStream("C:\\Users\\Division Office Tech\\eclipse-workspace\\MiniProject_ATS\\src\\main\\java\\com\\config\\config.properties");
+			prop.load(fp);			
+		}catch (FileNotFoundException  e){
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
